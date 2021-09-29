@@ -1,0 +1,12 @@
+1. What you have learned in completing this workshop?
+Ans: I learnt about the basics of input and output and how the stdio header
+class is used to perform these operations.
+
+2. Briefly describe what SSH is and how you used it in this workshop.
+Ans: SSH stands for Secure Shell and for this particular assignment, I used it
+to connect to the matrix server securely. This also helps facilitate the SFT
+Protocol.
+
+3. Briefly describe what SFTP is and how you used it in this workshop.
+Ans: SFTP stands for Secure File Transfer Protocol and is generally used to
+transfer files across systems that may not necessarily be on the same network
