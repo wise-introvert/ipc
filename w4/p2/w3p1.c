@@ -1,6 +1,6 @@
 /*
  *==================================================
- * 		Workshop #3 (Part-1):
+ * 		Workshop #3 (Part-2):
  *================================================== 
  * Name   : Fardeen Sohil Panjwani
  * ID     : 119588218
@@ -12,8 +12,9 @@
 
 #include<stdio.h>
 
-#define MIN_YEAR 2010
-#define MAX_YEAR 2021
+#define MIN_YEAR     2010
+#define MAX_YEAR     2021
+#define MAX_LOG_DAYS 3
 
 char * getMonth(int monthInNumber) {
 	switch(monthInNumber) {
@@ -63,7 +64,7 @@ int main(void) {
 		} else if(month < JAN || month > DEC) {
 			printf("   ERROR: Jan.(1) - Dec.(12)\n");
 		}  else {
-			printf("\n*** Log date set! ***\nLog starting date: %d-%s-01\n", year, getMonth(month));
+			printf("\n*** Log date set! ***\n\nLog starting date: %d-%s-01\n", year, getMonth(month));
 			flag = 0;
 		}
 	}
