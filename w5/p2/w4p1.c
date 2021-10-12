@@ -12,6 +12,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 double sumArray(double arr[], int n) {
 	int i;
@@ -23,12 +24,30 @@ double sumArray(double arr[], int n) {
 	return total;
 }
 
+bool isFinanced(char bools[], int size) {
+	int i;
+	for(i = 0; i < size; i++) {
+		if(bools[i] == 'y') {
+			return true;
+		} 
+	}
+	return false;
+}
+
+int myCeil(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+
 int main(void) {
 	// const float MAX_INCOME = 400000.00;
 	// const float MIN_INCOME = 500.00;
 	// const double MIN_COST = 100.00;
 
-	// float netMonthlyIncome = 6225.88;
+	float netMonthlyIncome = 6225.88;
 	int numberOfWishListItems = 5;
 	double costs[10] = {39030.15, 1200000.00, 350500.25, 15500.75, 6575.55};
 	int priority[10] = {1, 3, 2, 1, 3};
@@ -111,15 +130,29 @@ int main(void) {
 
 	while(selection != 0) {
 		if(selection == 1) {
-			// filter all items
+			printf("\n====================================================\n");
+			printf("Filter: All items\n");
+			double total = sumArray(costs, numberOfWishListItems);
+			int numberOfMonths = myCeil((float) (total / netMonthlyIncome));
+			int numberOfYears = numberOfMonths / 12;
+			int remainingMonths = numberOfMonths % 12;
+			bool displayFinanceMessage = isFinanced(finance, numberOfWishListItems);
+			printf("Amount: $%1.2lf\n", total);
+			printf("Forecast: %d years, %d months\n", numberOfYears, remainingMonths);
+			if(displayFinanceMessage) {
+				printf("NOTE: Financing options are available on some items.\n   You can likely reduce the estimated months.");
+			}
+			printf("\n====================================================\n");
 		} else if(selection == 2) { 
+			printf("====================================================");
 			// filter by priority
+			printf("====================================================");
 		} else {
 			printf("\nERROR: Invalid menu selection.\n");
-			printf("\nHow do you want to forecast your wish list?");
-			printf("\n1. All items (no filter)\n2. By priority\n0. Quit/Exit\nSelection: ");
-			scanf("%d", &selection);
 		}
+		printf("\nHow do you want to forecast your wish list?");
+		printf("\n1. All items (no filter)\n2. By priority\n0. Quit/Exit\nSelection: ");
+		scanf("%d", &selection);
 	}
 
 	printf("\nBest of luck in all your future endeavours!\n");
